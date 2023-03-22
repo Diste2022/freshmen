@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h> 
+#include <time.h>
+#include <math.h>
+#define MM 7
+#define NN 36
+typedef int ElemTp;
+typedef struct
+{ ElemTp elem[MM+1];
+int len;
+} VoteTp;
+typedef struct
+{ ElemTp elem[NN+1];
+int len;
+} SourceTp;
+SourceTp source;
+void InitializeVote(VoteTp *vote);
+void InitializeSource(SourceTp *source);
+void SeqInsertVote(VoteTp *vote,int i,ElemTp x);
+int SeqLocate(VoteTp v,ElemTp x);
+VoteTp CreateAVote();
+int RightNum(VoteTp vote,VoteTp answervote);
+void main( )
+{
+VoteTp vote;
+VoteTp answervote;
+int k,i;
+InitializeSource(&source); 
+/* 初始化备选数表Source：放入3 6个数，将表长置为3 6 */
+answervote=CreateAVote(); /* 生成一组中奖号码 */
+printf("\n Press Any Key to continue ,0 to exit !");
+printf("\n 中奖号码: "); 
+for (i=1;i<=MM;i++)
+ printf("%3d ",answervote.elem[i]);
+printf("\n 你的彩票编码:\n");
+while (getchar()!='0')
+{
+ vote=CreateAVote();
+ for (i=1;i<=MM;i++)
+ printf(" %-2d ",vote.elem[i]);
+ k=RightNum(vote,answervote);
+ printf(" ---->> %d \n",k);
+}
+}
+void InitializeVote(VoteTp *vote)
+{
+vote->len=0;
+}
+void InitializeSource(SourceTp *Source)
+{/* 初始化备选数表Source，在表中放入1～3 6共3 6个数，将表长置为36 */
+int i;
+for(i=1;i<=NN;i++)
+ Source->elem[i]=i;
+Source->len=NN;
+}
+int SeqLocate(VoteTp v,ElemTp x)
+{/* 在顺序表v中查找值为x的元素，返回该元素的位置序号，没有时返回0 */
+
+}
+void SeqInsertVote(VoteTp *vote,int i,ElemTp x)
+{/* 在顺序表*p的第i个数据元素之前插入数据元素x */
+VoteTp v;
+int j;
+v=*vote;
+if((i<1)||(i>v.len+1))
+printf(" error number!");
+else
+{
+ 
+
+}
+*vote=v;
